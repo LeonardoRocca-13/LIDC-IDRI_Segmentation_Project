@@ -5,6 +5,15 @@ import cv2
 
 
 def Image_augmentation(image, mask):
+    """
+    Applica trasformazioni di data augmentation a un'immagine e la sua maschera corrispondente.
+    Args:
+        image (np.array): L'immagine originale.
+        mask (np.array): La maschera corrispondente.
+
+    Returns:
+        tuple: Una tupla contenente l'immagine augmentata e la maschera augmentata.
+    """
     result = image_augmentation(image=image, mask=mask)
     aug_img = result['image']
     aug_mask = result['mask']
@@ -20,6 +29,6 @@ image_augmentation = Alb.Compose(
         Alb.Resize(256, 256),
         Alb.Rotate((1, 359), border_mode=cv2.BORDER_CONSTANT, value=0),
         Alb.HorizontalFlip(p=0.5),
-        Alb.RandomBrightnessContrast(brightness_limit=(-0.2, 0.25), contrast_limit=(-0.2, 0.25)),
+        Alb.RandomBrightnessContrast(brightness_limit=(-0.2, 0.3), contrast_limit=(-0.2, 0.3)),
     ]
 )
