@@ -8,6 +8,10 @@ import os
 
 
 def Create_dataset():
+    """
+    Crea un dataset a partire dalle scansioni dei pazienti.
+    Salva le immagini delle scansioni e le relative maschere.
+    """
     start_patient_id = 'LIDC-IDRI-0001'
     end_patient_id = 'LIDC-IDRI-1012'
 
@@ -51,6 +55,9 @@ def Create_dataset():
 
 
 def Shuffle_dataset():
+    """
+    Mescola il dataset e suddividilo in training, validation e testing set.
+    """
     patient_folders = [folder for folder in os.listdir('../resources')[:-1] if os.path.isdir(f'resources/{folder}/images')]
     np.random.shuffle(patient_folders)
 
