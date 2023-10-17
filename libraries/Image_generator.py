@@ -1,11 +1,20 @@
-from libraries.Image_augmentation import Image_augmentation
 from PIL import Image
 import numpy as np
 import random
 import os
 
+from libraries.Image_augmentation import Image_augmentation
+
 
 def Image_generator(split: str = 'training'):
+    """
+    Generatore di immagini e maschere a partire dai dati del dataset.
+    Args:
+        split (str, optional): Specifica il tipo di divisione dei dati (es. 'training', 'validation', 'testing').
+
+    Yields:
+        tuple: Una tupla contenente l'immagine e la maschera corrispondente.
+    """
     patients = os.listdir(f'resources/{split}')
     random.shuffle(patients)  # Shuffle the list of patients
 
