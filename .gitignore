@@ -152,5 +152,4 @@ cython_debug/
 
 .idea/
 resources/
-/images/
 /models/
